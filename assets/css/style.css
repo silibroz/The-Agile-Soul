@@ -82,11 +82,13 @@ h2 { font-size: clamp(2.1rem, 4vw, 2.9rem); margin-bottom: 1rem; }
 
 /* Offerings */
 .offerings { background: var(--sage); padding-block: 3.5rem; }
-.offerings__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 1.5rem; }
-.offer { display: grid; justify-items: center; text-align: center; gap: .8rem; color: var(--olive); transition: transform .25s; }
-.offer:hover { transform: translateY(-4px); }
-.offer svg { width: 52px; height: 44px; }
-.offer h3 { font-family: var(--sans); font-weight: 500; font-size: 1.05rem; color: var(--ink); line-height: 1.35; }
+.offerings__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
+.offer { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .8rem; padding: 2.25rem 1.5rem; background: var(--cream); border-radius: 4px; color: var(--olive); }
+.offer svg { width: 52px; height: 40px; }
+.offer h3 { font-family: var(--serif); font-weight: 500; font-size: 1.6rem; color: var(--ink); line-height: 1.2; }
+.offer p { font-size: .95rem; color: var(--text); max-width: 18rem; flex-grow: 1; }
+.offer .btn { margin-top: .5rem; }
+.offer .btn svg { width: 16px; height: 16px; }
 
 /* CTA */
 .cta { text-align: center; padding: 4.5rem 0 9rem; background: url("../images/mountains.svg") center bottom / 100% 55% no-repeat; }
@@ -128,7 +130,7 @@ a.contact__card:hover { border-color: var(--olive); transform: translateY(-3px);
   .hero__img { order: -1; height: 380px; }
   .hero__text { padding: 2.5rem 1.25rem; }
   .about { grid-template-columns: 1fr; padding-block: 1rem 3.5rem; }
-  .offerings__grid { grid-template-columns: repeat(2, 1fr); row-gap: 2.5rem; }
+  .offerings__grid { grid-template-columns: 1fr; }
   .contact__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
