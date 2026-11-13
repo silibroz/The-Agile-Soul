@@ -92,6 +92,24 @@ h2 { font-size: clamp(2.1rem, 4vw, 2.9rem); margin-bottom: 1rem; }
 .offer .btn { margin-top: .5rem; }
 .offer .btn svg { width: 16px; height: 16px; }
 
+/* Testimonials */
+.reviews { padding-block: 4.5rem 1rem; overflow: hidden; }
+.marquee { margin-top: 2.25rem; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.marquee + .marquee { margin-top: 1.25rem; }
+.marquee__track { display: flex; gap: 1.25rem; width: max-content; padding-block: .5rem; animation: marquee var(--dur, 60s) linear infinite; }
+.marquee--reverse .marquee__track { animation-direction: reverse; }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.review { display: flex; flex-direction: column; gap: .75rem; width: 340px; padding: 1.6rem 1.75rem; background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 6px 20px rgba(74,82,35,.06); }
+.review__head { display: flex; flex-direction: column; align-items: flex-start; gap: .3rem; }
+.review__head h3 { font-family: var(--serif); font-weight: 500; font-size: 1.2rem; color: var(--ink); white-space: nowrap; }
+.stars { display: flex; align-items: center; gap: .4rem; font-size: .8rem; color: var(--text); white-space: nowrap; }
+.stars i { font-style: normal; font-size: 1rem; letter-spacing: 2px; background: linear-gradient(90deg, #c9a227 var(--fill), #d9d4c7 var(--fill)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.review p { font-size: .95rem; flex-grow: 1; }
+.review__loc { display: flex; align-items: center; gap: .35rem; font-size: .82rem; color: var(--olive); letter-spacing: .05em; }
+.review__loc::before { content: ""; width: 12px; height: 12px; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z'/%3E%3C/svg%3E") center / contain no-repeat; }
+@media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } .marquee { overflow-x: auto; } }
+
 /* CTA */
 .cta { text-align: center; padding: 4.5rem 0 9rem; background: url("../images/mountains.svg") center bottom / 100% 55% no-repeat; }
 .cta p { max-width: 26rem; margin: 0 auto 2rem; }
@@ -177,6 +195,7 @@ a.contact__card:hover { border-color: var(--olive); transform: translateY(-3px);
   .stats__grid div:nth-child(3) { border-left: 0; }
   .steps__list li::after { display: none; }
   .approach__grid { grid-template-columns: 1fr; }
+  .review { width: 280px; padding: 1.35rem 1.4rem; }
 }
 
 @media (max-width: 480px) {
