@@ -92,6 +92,16 @@ h2 { font-size: clamp(2.1rem, 4vw, 2.9rem); margin-bottom: 1rem; }
 .cta { text-align: center; padding: 4.5rem 0 9rem; background: url("../images/mountains.svg") center bottom / 100% 55% no-repeat; }
 .cta p { max-width: 26rem; margin: 0 auto 2rem; }
 
+/* Contact */
+.contact { padding-block: 4.5rem; text-align: center; scroll-margin-top: 90px; }
+.contact__intro { max-width: 30rem; margin: 0 auto 2.5rem; }
+.contact__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.contact__card { display: grid; justify-items: center; gap: .5rem; padding: 2rem 1rem; background: #fff; border: 1px solid var(--line); border-radius: 4px; color: var(--olive); transition: .25s; }
+a.contact__card:hover { border-color: var(--olive); transform: translateY(-3px); }
+.contact__card svg { width: 30px; height: 30px; }
+.contact__card h3 { font-weight: 500; font-size: 1.05rem; color: var(--ink); }
+.contact__card p { font-size: .9rem; color: var(--text); }
+
 /* Footer */
 .footer { background: var(--olive-dark); color: #e9e6d8; text-align: center; padding-block: 1.25rem; font-size: .85rem; }
 
@@ -119,6 +129,7 @@ h2 { font-size: clamp(2.1rem, 4vw, 2.9rem); margin-bottom: 1rem; }
   .hero__text { padding: 2.5rem 1.25rem; }
   .about { grid-template-columns: 1fr; padding-block: 1rem 3.5rem; }
   .offerings__grid { grid-template-columns: repeat(2, 1fr); row-gap: 2.5rem; }
+  .contact__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 480px) {
