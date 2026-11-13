@@ -59,6 +59,7 @@ h2 { font-size: clamp(2.1rem, 4vw, 2.9rem); margin-bottom: 1rem; }
 .hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; min-height: 560px; }
 .hero__text { width: auto; padding: 4rem 2rem 4rem max(1.25rem, calc((100vw - 1140px) / 2)); }
 .hero__img { height: 100%; }
+.hero__img picture { display: block; height: 100%; }
 .hero__img img { width: 100%; height: 100%; object-fit: cover; }
 
 /* Benefits */
@@ -162,7 +163,7 @@ a.contact__card:hover { border-color: var(--olive); transform: translateY(-3px);
 
 @media (max-width: 768px) {
   .hero { grid-template-columns: 1fr; }
-  .hero__img { order: -1; height: 380px; }
+  .hero__img { order: -1; height: auto; aspect-ratio: 1 / 1; }
   .hero__text { padding: 2.5rem 1.25rem; }
   .about { grid-template-columns: 1fr; padding-block: 1rem 3.5rem; }
   .offerings__grid { grid-template-columns: 1fr; }
