@@ -39,13 +39,8 @@ h2 { font-size: clamp(2.1rem, 4vw, 2.9rem); margin-bottom: 1rem; }
 .btn-row { display: flex; flex-wrap: wrap; gap: 1rem; }
 
 /* Header */
-.header { position: sticky; top: 0; z-index: 50; background: var(--olive); border-bottom: 1px solid transparent; }
-.header .logo, .header .logo__name, .header .logo__tag, .header .nav a:not(.btn) { color: var(--cream); }
-.header .nav a:not(.btn)::after { background: var(--cream); }
-.header .nav__cta { background: var(--cream); color: var(--olive); }
-.header .nav__cta:hover { background: #fff; }
-.header .nav-toggle span { background: var(--cream); }
-@media (max-width: 1024px) { .header .nav { background: var(--olive); border-color: transparent; } }
+.header { position: sticky; top: 0; z-index: 50; background: #f3ede2; border-bottom: 1px solid #e6dfd1; }
+@media (max-width: 1024px) { .header .nav { background: #f3ede2; border-color: #e6dfd1; } }
 .header__inner { display: flex; align-items: center; justify-content: space-between; padding-block: 1rem; }
 .logo { display: grid; justify-items: center; color: var(--olive); }
 .logo__icon { width: 54px; }
