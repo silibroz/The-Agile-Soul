@@ -1,5 +1,5 @@
 // ===== WhatsApp number (country code + number, no + or spaces) =====
-const WA_NUMBER = '+917044979474';
+const WA_NUMBER = '917044979474';
 
 // Any link with data-wa="message" opens WhatsApp with that message
 document.querySelectorAll('[data-wa]').forEach(link => {
