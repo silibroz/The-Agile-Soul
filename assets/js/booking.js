@@ -4,7 +4,7 @@
 // ===== Google Sheet link =====
 // Paste your Google Apps Script "Web app" URL between the quotes.
 // Leave it empty ('') to turn saving off. WhatsApp keeps working either way.
-const SHEET_URL = '';
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyfxvR_nRebgystWI_sKeE5GIIbGx3-iBMmukpgan14oEkVSE8GZphe1LZb5q1_CD20/exec';
 
 (() => {
   // ---------- Data ----------
