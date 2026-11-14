@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | The Agile Soul – Yoga, Fitness &amp; Nutrition Tips for Women</title>
+  <meta name="description" content="Practical tips on yoga, functional training and healthy Indian eating for women, from certified trainer Maitrayee Bhowmick.">
+  <meta property="og:title" content="Blog | The Agile Soul – Yoga, Fitness &amp; Nutrition Tips for Women">
+  <meta property="og:description" content="Practical tips on yoga, functional training and healthy Indian eating for women, from certified trainer Maitrayee Bhowmick.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/blog.css">
+  <script>
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('anim');
+      setTimeout(() => { if (!window.__animReady) document.documentElement.classList.remove('anim'); }, 2500);
+    }
+  </script>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <svg class="logo__icon" viewBox="0 0 64 40" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M32 6c5 5 7 11 7 17s-3 11-7 13c-4-2-7-7-7-13s2-12 7-17z"/>
+          <path d="M25 30c-6-1-11-5-13-12 6-1 11 1 15 5"/>
+          <path d="M39 30c6-1 11-5 13-12-6-1-11 1-15 5"/>
+          <path d="M22 35c-6 0-12-3-16-8 5-2 11-1 16 2"/>
+          <path d="M42 35c6 0 12-3 16-8-5-2-11-1-16 2"/>
+        </svg>
+        <span class="logo__name">The Agile Soul</span>
+        <span class="logo__tag">Yoga &amp; Wellness</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#reviews">Testimonials</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#contact" class="btn btn--solid nav__cta" data-book>Book Free Consultation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="blog-hero container">
+      <p class="eyebrow eyebrow--line center" data-reveal>Blog</p>
+      <h1 data-reveal="split">Notes for a Stronger, Happier You</h1>
+      <p class="lead" data-reveal data-delay="450">Simple, practical guidance on yoga, functional training and healthy eating, written for real women with busy lives.</p>
+    </section>
+
+    <section class="container">
+      <div class="blog-filter" role="group" aria-label="Filter articles by category" data-reveal data-delay="600">
+        <button type="button" class="is-active" data-filter="all">All</button>
+        <button type="button" data-filter="Yoga">Yoga</button>
+        <button type="button" data-filter="Functional Training">Functional Training</button>
+        <button type="button" data-filter="Diet">Diet</button>
+        <button type="button" data-filter="Weight Loss">Weight Loss</button>
+      </div>
+      <p class="blog-empty" hidden>No articles in this category yet.</p>
+      <div class="blog-list">
+        <a href="blog/yoga-for-weight-management/" class="post-card post-card--featured" data-reveal data-delay="0" data-cats="Yoga|Weight Loss">
+          <div class="post-card__img"><img src="blog/yoga-for-weight-management/cover.png" alt="" loading="lazy"></div>
+          <div class="post-card__body">
+            <div class="post-card__tags"><span class="post-card__tag">Yoga</span><span class="post-card__tag">Weight Loss</span></div>
+            <h2>Yoga for Weight Management: What Really Helps</h2>
+            <p>Yoga won&#x27;t melt fat overnight, but it can make a healthy weight easier to reach and keep. Here&#x27;s how, plus 5 poses to start with at home.</p>
+            <div class="post-card__meta"><span>15 Nov 2026 · 3 min read</span><span class="post-card__more">Read article &rarr;</span></div>
+          </div>
+        </a>
+        <a href="blog/functional-training-for-women/" class="post-card" data-reveal data-delay="0" data-cats="Functional Training">
+          <div class="post-card__img"><img src="blog/functional-training-for-women/cover.png" alt="" loading="lazy"></div>
+          <div class="post-card__body">
+            <div class="post-card__tags"><span class="post-card__tag">Functional Training</span></div>
+            <h3>Functional Training for Women: Strength for Everyday Life</h3>
+            <p>Lifting groceries, climbing stairs, picking up a child: functional training builds the strength you use every day. Here&#x27;s how to begin at home.</p>
+            <div class="post-card__meta"><span>15 Nov 2026 · 3 min read</span><span class="post-card__more">Read article &rarr;</span></div>
+          </div>
+        </a>
+        <a href="blog/healthy-indian-eating-habits/" class="post-card" data-reveal data-delay="150" data-cats="Diet|Weight Loss">
+          <div class="post-card__img"><img src="blog/healthy-indian-eating-habits/cover.png" alt="" loading="lazy"></div>
+          <div class="post-card__body">
+            <div class="post-card__tags"><span class="post-card__tag">Diet</span><span class="post-card__tag">Weight Loss</span></div>
+            <h3>Healthy Eating, the Indian Way: Simple Habits That Last</h3>
+            <p>No crash diets and no imported superfoods. Small, steady changes to the food you already eat make the biggest difference.</p>
+            <div class="post-card__meta"><span>15 Nov 2026 · 2 min read</span><span class="post-card__more">Read article &rarr;</span></div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> The Agile Soul. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/booking.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/blog.js"></script>
+</body>
+</html>
