@@ -9,8 +9,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <script>
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('anim');
+      setTimeout(() => { if (!window.__animReady) document.documentElement.classList.remove('anim'); }, 2500);
+    }
+  </script>
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <!-- HEADER -->
   <header class="header">
@@ -47,10 +55,10 @@
     <!-- HERO -->
     <section class="hero">
       <div class="hero__text container">
-        <p class="eyebrow">One-on-One Online Coaching for Women</p>
-        <h1>Your Personal Coach for a Stronger, Happier You</h1>
-        <p class="lead">One-on-one online yoga, functional training and tailored diet plans, built around your body, your goals and your schedule.</p>
-        <div class="btn-row">
+        <p class="eyebrow" data-reveal>One-on-One Online Coaching for Women</p>
+        <h1 data-reveal="split">Your Personal Coach for a Stronger, Happier You</h1>
+        <p class="lead" data-reveal data-delay="600">One-on-one online yoga, functional training and tailored diet plans, built around your body, your goals and your schedule.</p>
+        <div class="btn-row" data-reveal data-delay="750">
           <a href="#contact" class="btn btn--solid">Book Free Consultation <span aria-hidden="true">&rarr;</span></a>
           <a href="#" class="btn btn--outline" data-wa="Hi! I have a few questions about your online coaching.">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1.2-1.5-2-1-1 1c-1.2-.5-2.2-1.5-2.7-2.7l1-1-1-2z"/></svg>
@@ -58,80 +66,80 @@
           </a>
         </div>
       </div>
-      <div class="hero__img">
+      <div class="hero__img" data-parallax="-0.05">
         <picture>
           <source media="(max-width: 768px)" srcset="assets/images/hero-mobile.png">
-          <img src="assets/images/hero.png" alt="Yoga trainer seated in calm meditation" fetchpriority="high">
+          <img data-reveal="clip" src="assets/images/hero.png" alt="Yoga trainer seated in calm meditation" fetchpriority="high">
         </picture>
       </div>
     </section>
 
     <!-- BENEFITS -->
     <section class="benefits container">
-      <div class="benefit">
-        <svg viewBox="0 0 48 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 4c4 4 5 9 5 13s-2 9-5 11c-3-2-5-6-5-11s1-9 5-13z"/><path d="M19 24c-5-1-9-4-10-10 5-1 9 1 12 4"/><path d="M29 24c5-1 9-4 10-10-5-1-9 1-12 4"/></svg>
+      <div class="benefit" data-reveal data-delay="0">
+        <svg data-draw viewBox="0 0 48 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 4c4 4 5 9 5 13s-2 9-5 11c-3-2-5-6-5-11s1-9 5-13z"/><path d="M19 24c-5-1-9-4-10-10 5-1 9 1 12 4"/><path d="M29 24c5-1 9-4 10-10-5-1-9 1-12 4"/></svg>
         <p><strong>Weight</strong><strong>Management</strong></p>
       </div>
-      <div class="benefit">
-        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 5v14m0 0c-2 2-4 3-6 3m6-3c2 2 4 3 6 3"/><path d="M14 12c-5 0-8 8-8 15 0 5 3 7 7 6s4-5 4-10v-8"/><path d="M26 12c5 0 8 8 8 15 0 5-3 7-7 6s-4-5-4-10v-8"/></svg>
+      <div class="benefit" data-reveal data-delay="150">
+        <svg data-draw viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 5v14m0 0c-2 2-4 3-6 3m6-3c2 2 4 3 6 3"/><path d="M14 12c-5 0-8 8-8 15 0 5 3 7 7 6s4-5 4-10v-8"/><path d="M26 12c5 0 8 8 8 15 0 5-3 7-7 6s-4-5-4-10v-8"/></svg>
         <p><strong>Better Breathing</strong>(Pranayama)</p>
       </div>
-      <div class="benefit">
-        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="20" cy="8" r="3.5"/><path d="M20 12v10m0-6l-8 6m8-6l8 6"/><path d="M6 32c4-4 9-5 14-5s10 1 14 5H6z"/></svg>
+      <div class="benefit" data-reveal data-delay="300">
+        <svg data-draw viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="20" cy="8" r="3.5"/><path d="M20 12v10m0-6l-8 6m8-6l8 6"/><path d="M6 32c4-4 9-5 14-5s10 1 14 5H6z"/></svg>
         <p><strong>Stress Relief</strong>&amp; Mental Balance</p>
       </div>
-      <div class="benefit">
-        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 32C8 18 18 8 33 7c0 15-10 25-25 25z"/><path d="M8 32L24 16"/></svg>
+      <div class="benefit" data-reveal data-delay="450">
+        <svg data-draw viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 32C8 18 18 8 33 7c0 15-10 25-25 25z"/><path d="M8 32L24 16"/></svg>
         <p><strong>Holistic</strong><strong>Well-being</strong></p>
       </div>
     </section>
 
     <!-- ABOUT -->
     <section class="about container">
-      <div class="about__img">
-        <img src="assets/images/about.png" alt="Yoga mat and singing bowl" loading="lazy">
+      <div class="about__img" data-parallax="0.08">
+        <img data-reveal="clip" src="assets/images/about.png" alt="Yoga mat and singing bowl" loading="lazy">
       </div>
       <div class="about__text">
-        <p class="eyebrow eyebrow--line">Meet Your Trainer</p>
-        <h2>Maitrayee Bhowmick</h2>
-        <p>A certified yoga trainer with over 7 years of experience, helping women build a healthier, stronger and more balanced life through the timeless practice of yoga.</p>
+        <p class="eyebrow eyebrow--line" data-reveal>Meet Your Trainer</p>
+        <h2 data-reveal="split">Maitrayee Bhowmick</h2>
+        <p data-reveal data-delay="200">A certified yoga trainer with over 7 years of experience, helping women build a healthier, stronger and more balanced life through the timeless practice of yoga.</p>
         <div class="facts">
-          <div class="fact">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="16" cy="12" r="7"/><path d="M11 18l-3 10 5-2 3 4 2-8M21 18l3 10-5-2"/></svg>
+          <div class="fact" data-reveal data-delay="300">
+            <svg data-draw viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="16" cy="12" r="7"/><path d="M11 18l-3 10 5-2 3 4 2-8M21 18l3 10-5-2"/></svg>
             <span>Certified from K11 School of Fitness Sciences</span>
           </div>
-          <div class="fact">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="7" width="22" height="20" rx="2"/><path d="M5 13h22M11 4v6M21 4v6"/></svg>
-            <span>7+ Years<br>of Experience</span>
+          <div class="fact" data-reveal data-delay="450">
+            <svg data-draw viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="7" width="22" height="20" rx="2"/><path d="M5 13h22M11 4v6M21 4v6"/></svg>
+            <span><b data-count="7" data-suffix="+">7+</b> Years<br>of Experience</span>
           </div>
-          <div class="fact">
-            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 29s9-9 9-16a9 9 0 0 0-18 0c0 7 9 16 9 16z"/><circle cx="16" cy="13" r="3"/></svg>
+          <div class="fact" data-reveal data-delay="600">
+            <svg data-draw viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 29s9-9 9-16a9 9 0 0 0-18 0c0 7 9 16 9 16z"/><circle cx="16" cy="13" r="3"/></svg>
             <span>Based in Siliguri, West Bengal</span>
           </div>
         </div>
-        <a href="about.html" class="btn btn--outline">Know More About Me <span aria-hidden="true">&rarr;</span></a>
+        <a href="about.html" class="btn btn--outline" data-reveal data-delay="700">Know More About Me <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
 
     <!-- OFFERINGS -->
     <section class="offerings">
       <div class="container">
-        <p class="eyebrow eyebrow--line center">My Offerings</p>
+        <p class="eyebrow eyebrow--line center" data-reveal>My Offerings</p>
         <div class="offerings__grid">
-          <div class="offer">
-            <svg viewBox="0 0 48 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 4c4 4 5 9 5 13s-2 9-5 11c-3-2-5-6-5-11s1-9 5-13z"/><path d="M19 24c-5-1-9-4-10-10 5-1 9 1 12 4"/><path d="M29 24c5-1 9-4 10-10-5-1-9 1-12 4"/></svg>
+          <div class="offer" data-reveal="tilt" data-delay="0" data-tilt>
+            <svg data-draw viewBox="0 0 48 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 4c4 4 5 9 5 13s-2 9-5 11c-3-2-5-6-5-11s1-9 5-13z"/><path d="M19 24c-5-1-9-4-10-10 5-1 9 1 12 4"/><path d="M29 24c5-1 9-4 10-10-5-1-9 1-12 4"/></svg>
             <h3>Online Yoga Training</h3>
             <p>Personal yoga sessions, including pranayama, flexibility and weight-loss yoga.</p>
             <a href="#" class="btn btn--outline" data-wa="Hi! I'm interested in Online Yoga Training. Please share the details."><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/></svg> Enquire</a>
           </div>
-          <div class="offer">
-            <svg viewBox="0 0 48 32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="9" width="5" height="14" rx="1"/><rect x="37" y="9" width="5" height="14" rx="1"/><rect x="11" y="12" width="4" height="8" rx="1"/><rect x="33" y="12" width="4" height="8" rx="1"/><path d="M15 16h18M2 16h4M42 16h4"/></svg>
+          <div class="offer" data-reveal="tilt" data-delay="150" data-tilt>
+            <svg data-draw viewBox="0 0 48 32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="9" width="5" height="14" rx="1"/><rect x="37" y="9" width="5" height="14" rx="1"/><rect x="11" y="12" width="4" height="8" rx="1"/><rect x="33" y="12" width="4" height="8" rx="1"/><path d="M15 16h18M2 16h4M42 16h4"/></svg>
             <h3>Functional Training</h3>
             <p>Strength, mobility and stamina workouts you can do at home.</p>
             <a href="#" class="btn btn--outline" data-wa="Hi! I'm interested in Functional Training. Please share the details."><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/></svg> Enquire</a>
           </div>
-          <div class="offer">
-            <svg viewBox="0 0 48 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 15h36c0 8-8 14-18 14S6 23 6 15z"/><path d="M18 15c0-5 3-9 7-10M26 15c1-4 4-7 8-7-1 4-4 7-8 7"/></svg>
+          <div class="offer" data-reveal="tilt" data-delay="300" data-tilt>
+            <svg data-draw viewBox="0 0 48 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 15h36c0 8-8 14-18 14S6 23 6 15z"/><path d="M18 15c0-5 3-9 7-10M26 15c1-4 4-7 8-7-1 4-4 7-8 7"/></svg>
             <h3>Tailored Diet Plan</h3>
             <p>Simple meal plans built around your goals and lifestyle.</p>
             <a href="#" class="btn btn--outline" data-wa="Hi! I'm interested in a Tailored Diet Plan. Please share the details."><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/></svg> Enquire</a>
@@ -140,14 +148,24 @@
       </div>
     </section>
 
+    <!-- FLOWING WORDS -->
+    <section class="flow-band" aria-hidden="true">
+      <div class="flow-band__row" data-flow="-1">
+        <span>Online Yoga</span><em>✦</em><span class="o">Functional Training</span><em>✦</em><span>Tailored Diet</span><em>✦</em><span class="o">Online Yoga</span><em>✦</em><span>Functional Training</span><em>✦</em><span class="o">Tailored Diet</span><em>✦</em>
+      </div>
+      <div class="flow-band__row" data-flow="1">
+        <span class="o">Stronger</span><em>✦</em><span>Happier</span><em>✦</em><span class="o">Calmer</span><em>✦</em><span>Stronger</span><em>✦</em><span class="o">Happier</span><em>✦</em><span>Calmer</span><em>✦</em><span class="o">Stronger</span><em>✦</em><span>Happier</span><em>✦</em>
+      </div>
+    </section>
+
     <!-- TESTIMONIALS -->
     <section class="reviews" id="reviews">
       <div class="container">
-        <p class="eyebrow eyebrow--line center">Testimonials</p>
-        <h2 class="center-text">What People Feel</h2>
+        <p class="eyebrow eyebrow--line center" data-reveal>Testimonials</p>
+        <h2 class="center-text" data-reveal="split">What People Feel</h2>
       </div>
 
-      <div class="marquee">
+      <div class="marquee" data-reveal="right" data-delay="200">
         <div class="marquee__track">
           <article class="review" data-rating="5.0">
             <div class="review__head">
@@ -255,7 +273,7 @@
           </article>
         </div>
       </div>
-      <div class="marquee marquee--reverse">
+      <div class="marquee marquee--reverse" data-reveal="left" data-delay="350">
         <div class="marquee__track">
           <article class="review" data-rating="5.0">
             <div class="review__head">
@@ -360,35 +378,35 @@
     <!-- CTA -->
     <section class="cta">
       <div class="container">
-        <h2>Begin Your Yoga Journey</h2>
-        <p>Book a free consultation and take the first step towards a healthier, calmer and more energetic you.</p>
-        <a href="#contact" class="btn btn--solid">Book Free Consultation <span aria-hidden="true">&rarr;</span></a>
+        <h2 data-reveal="split">Begin Your Yoga Journey</h2>
+        <p data-reveal data-delay="250">Book a free consultation and take the first step towards a healthier, calmer and more energetic you.</p>
+        <a href="#contact" class="btn btn--solid" data-reveal data-delay="400">Book Free Consultation <span aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
     <!-- CONTACT -->
     <section class="contact" id="contact">
       <div class="container">
-        <p class="eyebrow eyebrow--line center">Contact</p>
-        <h2>Get in Touch</h2>
-        <p class="contact__intro">Message or call to book your free consultation. Classes are held online, so you can join from anywhere.</p>
+        <p class="eyebrow eyebrow--line center" data-reveal>Contact</p>
+        <h2 data-reveal="split">Get in Touch</h2>
+        <p class="contact__intro" data-reveal data-delay="200">Message or call to book your free consultation. Classes are held online, so you can join from anywhere.</p>
         <div class="contact__grid">
-          <a href="#" class="contact__card" data-wa="Hi! I'd like to know more about The Agile Soul.">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1.2-1.5-2-1-1 1c-1.2-.5-2.2-1.5-2.7-2.7l1-1-1-2z"/></svg>
+          <a href="#" class="contact__card" data-wa="Hi! I'd like to know more about The Agile Soul." data-reveal data-delay="0">
+            <svg data-draw viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1.2-1.5-2-1-1 1c-1.2-.5-2.2-1.5-2.7-2.7l1-1-1-2z"/></svg>
             <h3>WhatsApp</h3>
             <p>+91 70449 79474</p>
           </a>
-          <a href="tel:+917044979474" class="contact__card">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+          <a href="tel:+917044979474" class="contact__card" data-reveal data-delay="130">
+            <svg data-draw viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
             <h3>Call</h3>
             <p>+91 70449 79474</p>
           </a>
-          <a href="mailto:theagilesoul@gmail.com" class="contact__card">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <a href="mailto:theagilesoul@gmail.com" class="contact__card" data-reveal data-delay="260">
+            <svg data-draw viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
             <h3>Email</h3>
             <p>theagilesoul@gmail.com</p>
           </a>
-          <div class="contact__card">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <div class="contact__card" data-reveal data-delay="390">
+            <svg data-draw viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
             <h3>Location</h3>
             <p>Siliguri, West Bengal<br>(Online classes)</p>
           </div>
@@ -398,43 +416,43 @@
     <!-- FAQ -->
     <section class="faq" id="faq">
       <div class="container faq__inner">
-        <p class="eyebrow eyebrow--line center">FAQ</p>
-        <h2 class="center-text">Frequently Asked Questions</h2>
+        <p class="eyebrow eyebrow--line center" data-reveal>FAQ</p>
+        <h2 class="center-text" data-reveal="split">Frequently Asked Questions</h2>
         <div class="faq__list">
-          <details class="faq__item" name="faq">
+          <details class="faq__item" name="faq" data-reveal data-delay="0">
             <summary>Do I need prior experience or a particular fitness level to get started?<span class="faq__icon" aria-hidden="true"></span></summary>
             <p>Not at all! The sessions are suitable for beginners as well as individuals with prior fitness experience. Your routine will be planned according to your current fitness level, lifestyle and personal goals.</p>
           </details>
-          <details class="faq__item" name="faq">
+          <details class="faq__item" name="faq" data-reveal data-delay="90">
             <summary>I have a busy work schedule. Are the class timings flexible?<span class="faq__icon" aria-hidden="true"></span></summary>
             <p>Absolutely! We understand that balancing work and personal commitments can be challenging. Flexible scheduling options are available to help you maintain a consistent wellness routine without disrupting your daily schedule.</p>
           </details>
-          <details class="faq__item" name="faq">
+          <details class="faq__item" name="faq" data-reveal data-delay="180">
             <summary>What if I miss a scheduled class due to work or an emergency?<span class="faq__icon" aria-hidden="true"></span></summary>
             <p>We understand that unexpected meetings and personal commitments can come up. If you miss a session, please inform us in advance whenever possible. Make-up or rescheduling options can be discussed based on availability and the class plan.</p>
           </details>
-          <details class="faq__item" name="faq">
+          <details class="faq__item" name="faq" data-reveal data-delay="270">
             <summary>Do you provide personalised diet plans?<span class="faq__icon" aria-hidden="true"></span></summary>
             <p>Personalised diet planning is included as part of our Yoga + Functional Training Combo programme. This helps align your nutrition with your fitness goals and training routine. Diet plans are not included with standalone yoga sessions.</p>
           </details>
-          <details class="faq__item" name="faq">
+          <details class="faq__item" name="faq" data-reveal data-delay="360">
             <summary>Can I join if my main goal is weight loss or improving fitness?<span class="faq__icon" aria-hidden="true"></span></summary>
             <p>Yes! Whether your goal is weight management, improved flexibility, better stamina, stress reduction or overall fitness, your routine can be tailored to support your individual needs.</p>
           </details>
-          <details class="faq__item" name="faq">
+          <details class="faq__item" name="faq" data-reveal data-delay="450">
             <summary>How much time do I need to dedicate every day?<span class="faq__icon" aria-hidden="true"></span></summary>
             <p>You don&#x27;t need to spend hours exercising. The routine is designed around your availability and goals. Even a manageable, consistent practice can help you build healthier habits over time.</p>
           </details>
-          <details class="faq__item" name="faq">
+          <details class="faq__item" name="faq" data-reveal data-delay="540">
             <summary>Are the sessions conducted online, and what do I need to participate?<span class="faq__icon" aria-hidden="true"></span></summary>
             <p>Yes, sessions are conducted online, so you can participate from home or wherever you feel comfortable. You will need a stable internet connection, a smartphone or laptop, comfortable clothing and a little space to practise.</p>
           </details>
-          <details class="faq__item" name="faq">
+          <details class="faq__item" name="faq" data-reveal data-delay="630">
             <summary>How do I get started, and can I discuss my goals before joining?<span class="faq__icon" aria-hidden="true"></span></summary>
             <p>Of course! You can get in touch to discuss your lifestyle, work schedule, fitness goals and expectations. Based on the discussion, we can help you choose a suitable programme.</p>
           </details>
         </div>
-        <p class="faq__more">Still have a question?
+        <p class="faq__more" data-reveal>Still have a question?
           <a href="#" class="btn btn--outline" data-wa="Hi! I couldn't find my question in the FAQ. My question is: ">Ask on WhatsApp</a>
         </p>
       </div>
@@ -448,5 +466,6 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
 </body>
 </html>
