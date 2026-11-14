@@ -76,7 +76,7 @@
 .blog-filter button:hover { border-color: var(--olive); }
 .blog-filter button.is-active { background: var(--olive); border-color: var(--olive); color: #fff; }
 .blog-empty { text-align: center; padding-block: 2rem; }
-.post-card[hidden] { display: none; }
+.post-card[hidden] { display: none !important; }
 .post-card__tags { display: flex; flex-wrap: wrap; gap: .4rem; }
 .blog-list.is-filtered .post-card--featured { grid-column: auto; display: flex; }
 .blog-list.is-filtered .post-card--featured .post-card__img { min-height: 0; aspect-ratio: 16 / 9; }
