@@ -1,5 +1,11 @@
 // ===== Booking form popup → WhatsApp =====
 // Uses WA_NUMBER from main.js (load this file after main.js)
+
+// ===== Google Sheet link =====
+// Paste your Google Apps Script "Web app" URL between the quotes.
+// Leave it empty ('') to turn saving off. WhatsApp keeps working either way.
+const SHEET_URL = '';
+
 (() => {
   // ---------- Data ----------
   const STATES = {
@@ -77,6 +83,10 @@
           <label>First name<input name="first" type="text" maxlength="40" autocomplete="given-name" required></label>
           <label>Last name<input name="last" type="text" maxlength="40" autocomplete="family-name" required></label>
         </div>
+        <label>WhatsApp number
+          <span class="book__phone"><b>+91</b><input name="phone" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" autocomplete="tel-national" required></span>
+          <small class="book__err book__err--phone" hidden>Please enter a valid 10-digit mobile number</small>
+        </label>
         <div class="book__row">
           <label>State
             <select name="state" required>
@@ -112,6 +122,11 @@
           </div>
         </fieldset>
 
+        <div class="book__consent">
+          <label class="tick"><input type="checkbox" name="marketing"><span>Send me wellness tips and offers on WhatsApp <em>(optional)</em></span></label>
+        </div>
+        <input type="text" name="website" class="book__trap" tabindex="-1" autocomplete="off" aria-hidden="true">
+
         <button type="submit" class="btn btn--solid book__submit" disabled>Book Now</button>
         <p class="book__hint">Kindly fill all details</p>
       </form>
@@ -126,7 +141,8 @@
   const hint = form.querySelector('.book__hint');
   const otherBox = form.querySelector('.book__other');
   const otherCity = form.querySelector('.book__other-city');
-  const ageErr = form.querySelector('.book__err');
+  const ageErr = form.querySelector('.book__err:not(.book__err--phone)');
+  const phoneErr = form.querySelector('.book__err--phone');
   const counter = form.querySelector('.book__count');
   let lastFocus = null;
 
@@ -145,6 +161,8 @@
     if (!otherCity.hidden) f.cityOther.focus();
   });
 
+  f.phone.addEventListener('input', () => { f.phone.value = f.phone.value.replace(/\D/g, '').slice(0, 10); phoneErr.hidden = true; });
+  f.phone.addEventListener('blur', () => { phoneErr.hidden = !f.phone.value || phoneOk(); });
   f.age.addEventListener('input', () => { f.age.value = f.age.value.replace(/\D/g, '').slice(0, 2); ageErr.hidden = true; });
   f.age.addEventListener('blur', () => { ageErr.hidden = !f.age.value || ageOk(); });
 
@@ -154,12 +172,13 @@
   });
   f.otherText.addEventListener('input', () => { counter.textContent = `${f.otherText.value.length} / 300`; });
 
+  const phoneOk = () => /^[6-9]\d{9}$/.test(f.phone.value);
   const ageOk = () => { const a = +f.age.value; return a >= AGE_MIN && a <= AGE_MAX; };
   const cityValue = () => f.city.value === '__other' ? f.cityOther.value.trim() : f.city.value;
   const goalsChosen = () => [...form.querySelectorAll('input[name="goal"]:checked')].map(c => GOALS[c.value]);
 
   const isValid = () =>
-    f.first.value.trim() && f.last.value.trim() &&
+    f.first.value.trim() && f.last.value.trim() && phoneOk() &&
     f.state.value && cityValue() &&
     ageOk() && f.profession.value &&
     (goalsChosen().length || f.goalOther.checked) &&
@@ -184,12 +203,47 @@
     const msg = `Hi Maitrayee, I am ${cap(f.first.value)} ${cap(f.last.value)}, a ${PROFESSIONS[f.profession.value]} from ${cap(cityValue())}, ${f.state.value}. ` +
       `I am ${+f.age.value} years old and I want to ${joinList(goals)}. ` +
       `Could you please schedule a call with me based on your availability to discuss further? Thanks!`;
+    // 1. Open WhatsApp first (must happen right on the click)
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+
+    // 2. Save a copy to the Google Sheet in the background
+    if (SHEET_URL && !f.website.value) {
+      const data = {
+        firstName: cap(f.first.value),
+        lastName: cap(f.last.value),
+        phone: '+91 ' + f.phone.value,
+        city: cap(cityValue()),
+        state: f.state.value,
+        age: +f.age.value,
+        profession: f.profession.value,
+        goals: [...form.querySelectorAll('input[name="goal"]:checked')].map(c => c.value).join(', '),
+        otherGoal: f.goalOther.checked ? f.otherText.value.trim() : '',
+        marketingOptIn: f.marketing.checked ? 'Yes' : 'No',
+        page: location.pathname,
+        message: msg
+      };
+      fetch(SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        keepalive: true,
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(data)
+      }).catch(() => {});
+    }
+
     close();
+    setTimeout(() => {
+      form.reset();
+      f.city.innerHTML = '<option value="">Select state first</option>';
+      f.city.disabled = true;
+      otherBox.hidden = true; otherCity.hidden = true; ageErr.hidden = true; phoneErr.hidden = true;
+      counter.textContent = '0 / 300';
+      refresh();
+    }, 400);
   });
 
   // ---------- Open / close ----------
-  const focusables = () => [...modal.querySelectorAll('button, input, select, textarea')].filter(el => !el.disabled && el.offsetParent !== null);
+  const focusables = () => [...modal.querySelectorAll('button, input, select, textarea')].filter(el => !el.disabled && el.offsetParent !== null && el.tabIndex !== -1);
   const open = () => {
     lastFocus = document.activeElement;
     modal.hidden = false;
