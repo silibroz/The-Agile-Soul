@@ -5,6 +5,10 @@
 // Paste your Google Apps Script "Web app" URL between the quotes.
 // Leave it empty ('') to turn saving off. WhatsApp keeps working either way.
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyfxvR_nRebgystWI_sKeE5GIIbGx3-iBMmukpgan14oEkVSE8GZphe1LZb5q1_CD20/exec';
+// ===== Test number for the Book Now form only =====
+// Put a number here (91 + 10 digits, no + or spaces) to send form messages there.
+// Leave it empty ('') to use Maitrayee's number again.
+const BOOK_NUMBER = '919676737016';
 
 (() => {
   // ---------- Data ----------
@@ -204,7 +208,7 @@ const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyfxvR_nRebgystWI_sKe
       `I am ${+f.age.value} years old and I want to ${joinList(goals)}. ` +
       `Could you please schedule a call with me based on your availability to discuss further? Thanks!`;
     // 1. Open WhatsApp first (must happen right on the click)
-    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+       window.open(`https://wa.me/${BOOK_NUMBER || WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
 
     // 2. Save a copy to the Google Sheet in the background
     if (SHEET_URL && !f.website.value) {
