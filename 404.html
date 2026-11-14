@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found | The Agile Soul</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .notfound { text-align: center; padding-block: 6rem 7rem; }
+    .notfound__code { font-family: var(--serif); font-size: clamp(5rem, 16vw, 9rem); line-height: 1; color: var(--olive); opacity: .25; margin-bottom: .5rem; }
+    .notfound .lead { margin-inline: auto; }
+    .notfound .btn-row { justify-content: center; }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="/index.html" class="logo">
+        <svg class="logo__icon" viewBox="0 0 64 40" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M32 6c5 5 7 11 7 17s-3 11-7 13c-4-2-7-7-7-13s2-12 7-17z"/>
+          <path d="M25 30c-6-1-11-5-13-12 6-1 11 1 15 5"/>
+          <path d="M39 30c6-1 11-5 13-12-6-1-11 1-15 5"/>
+          <path d="M22 35c-6 0-12-3-16-8 5-2 11-1 16 2"/>
+          <path d="M42 35c6 0 12-3 16-8-5-2-11-1-16 2"/>
+        </svg>
+        <span class="logo__name">The Agile Soul</span>
+        <span class="logo__tag">Yoga &amp; Wellness</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav">
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/index.html#reviews">Testimonials</a>
+        <a href="/index.html#faq">FAQ</a>
+        <a href="/index.html#contact">Contact</a>
+        <a href="/index.html#contact" class="btn btn--solid nav__cta" data-book>Book Free Consultation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="notfound container">
+      <p class="notfound__code">404</p>
+      <h1>This Page Has Wandered Off</h1>
+      <p class="lead">The page you're looking for doesn't exist or has moved. Take a deep breath and let's get you back on track.</p>
+      <div class="btn-row">
+        <a href="/" class="btn btn--solid">Go to Home <span aria-hidden="true">&rarr;</span></a>
+        <a href="/blog" class="btn btn--outline">Read the Blog</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> The Agile Soul. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/booking.js"></script>
+</body>
+</html>
