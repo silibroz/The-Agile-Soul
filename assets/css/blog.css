@@ -82,3 +82,21 @@
 .blog-list.is-filtered .post-card--featured .post-card__img { min-height: 0; aspect-ratio: 16 / 9; }
 .blog-list.is-filtered .post-card--featured .post-card__body { padding: 1.6rem 1.75rem 1.75rem; }
 .blog-list.is-filtered .post-card--featured h2 { font-size: 1.5rem; }
+
+/* Article tables */
+.post__table { overflow-x: auto; margin-block: 1.75rem; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+.post__table table { width: 100%; border-collapse: collapse; font-size: .95rem; line-height: 1.5; }
+.post__table th { text-align: left; padding: .9rem 1rem; background: var(--sage); color: var(--ink); font-weight: 500; }
+.post__table td { padding: .8rem 1rem; border-top: 1px solid var(--line); vertical-align: top; }
+.post__table tr:nth-child(even) td { background: #fbf9f5; }
+
+/* Article FAQ + sources */
+.post__faq { margin-top: 1.5rem; }
+.post__faq .faq__item summary { font-size: 1rem; }
+.post__faq .faq__item p { font-size: .98rem; line-height: 1.7; }
+.post__sources { margin-top: 2.75rem !important; padding: 1.5rem 1.75rem; background: #fff; border: 1px solid var(--line); border-radius: 16px; }
+.post__sources h2 { font-size: 1.3rem; margin: 0 0 .75rem; }
+.post__sources ol { font-size: .88rem; line-height: 1.55; gap: .45rem; }
+.post__sources a { color: var(--olive); text-decoration: underline; text-underline-offset: 3px; word-break: break-word; }
+.post__body p a, .post__body li a { color: var(--olive); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 560px) { .post__table table { font-size: .85rem; } .post__table th, .post__table td { padding: .7rem; } }
