@@ -243,12 +243,15 @@ body.book-open { overflow: hidden; }
 .book__form { display: grid; gap: 1rem; }
 .book__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .book__form label { display: grid; gap: .35rem; font-size: .85rem; font-weight: 500; color: var(--ink); }
-.book__form input[type="text"], .book__form select, .book__form textarea { width: 100%; padding: .75rem .9rem; font: inherit; font-size: .95rem; font-weight: 400; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 12px; outline: none; transition: border-color .2s, box-shadow .2s; }
+.book__form input[type="text"], .book__form input[type="tel"], .book__form select, .book__form textarea { width: 100%; padding: .75rem .9rem; font: inherit; font-size: .95rem; font-weight: 400; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 12px; outline: none; transition: border-color .2s, box-shadow .2s; }
 .book__form select { appearance: none; padding-right: 2.25rem; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a5223' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") right .8rem center / 16px no-repeat; cursor: pointer; }
 .book__form select:disabled { background-color: #f3f1ec; color: #9a978c; cursor: not-allowed; }
 .book__form :is(input, select, textarea):focus { border-color: var(--olive); box-shadow: 0 0 0 3px rgba(74, 82, 35, .15); }
 .book__form textarea { resize: vertical; min-height: 84px; }
 .book__err { color: #a03a2c; font-size: .78rem; font-weight: 400; }
+.book__phone { display: flex; align-items: stretch; }
+.book__phone b { display: grid; place-items: center; padding: 0 .9rem; font-weight: 500; font-size: .95rem; color: var(--olive); background: var(--sage); border: 1px solid var(--line); border-right: 0; border-radius: 12px 0 0 12px; }
+.book__phone input { flex: 1; min-width: 0; border-radius: 0 12px 12px 0 !important; }
 
 .book__goals { border: 0; display: flex; flex-wrap: wrap; gap: .6rem; }
 .book__goals legend { width: 100%; margin-bottom: .6rem; font-size: .85rem; font-weight: 500; color: var(--ink); }
@@ -264,6 +267,11 @@ body.book-open { overflow: hidden; }
 .book__other[hidden], .book__other-city[hidden], .book__err[hidden], .book__hint[hidden] { display: none; }
 .book__count { justify-self: end; font-size: .75rem; color: var(--text); }
 
+.book__consent { display: grid; gap: .55rem; padding-top: .25rem; }
+.tick { display: flex !important; grid-template-columns: none; align-items: flex-start; gap: .6rem !important; font-weight: 400 !important; font-size: .85rem !important; color: var(--text) !important; cursor: pointer; line-height: 1.45; }
+.tick input { flex-shrink: 0; width: 18px; height: 18px; margin-top: .1rem; accent-color: var(--olive); cursor: pointer; }
+.tick em { font-style: normal; opacity: .7; }
+.book__trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .book__submit { justify-content: center; width: 100%; padding-block: .95rem; font-size: 1rem; margin-top: .5rem; }
 .book__submit:disabled { background: #c9c7bd; color: #f5f3ee; cursor: not-allowed; }
 .book__hint { margin-top: -.4rem; text-align: center; font-size: .8rem; color: var(--text); }
