@@ -95,7 +95,7 @@ h2 { font-size: clamp(2.1rem, 4vw, 2.9rem); margin-bottom: 1rem; }
 .offer .btn svg { width: 16px; height: 16px; }
 
 /* Testimonials */
-.reviews { padding-block: 4.5rem 1rem; overflow: hidden; }
+.reviews { padding-block: 4.5rem 1rem; overflow: hidden; scroll-margin-top: 90px; }
 .marquee { margin-top: 2.25rem; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
 .marquee + .marquee { margin-top: 1.25rem; }
 .marquee__track { display: flex; gap: 1.25rem; width: max-content; padding-block: .5rem; animation: marquee var(--dur, 60s) linear infinite; }
